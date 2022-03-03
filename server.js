@@ -1,6 +1,14 @@
 const fastify = require('fastify')({logger:true})
 const PORT = 8080
+//SWAGGER API DOC
 
+fastify.register(require('fastify-swagger' ),{
+    exposeRoute: true,
+    routePrefix:'/docs',
+    swagger:{
+        info:{title:'fastify-api-doc'},
+    },
+})
 
 //like user router in express
 fastify.register(require('./routes/item'))
