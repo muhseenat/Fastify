@@ -16,4 +16,5 @@ Content-Type: application/json
 
 {"name":"NEW PRODUCT"}
 
-
+###DELETE ITEM
+DELETE http://localhost:8080/delete/item/1 HTTP/1.1
