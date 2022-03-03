@@ -1,6 +1,8 @@
 
 //Like requiring DB
 let items = require("../Items");
+
+//FOR UNIQUE ID
 const {v4:uuidv4} = require('uuid')
 
 
@@ -32,9 +34,16 @@ const addItem=(req,reply)=>{
 const deleteItem=(req,reply)=>{
     const {id} =req.params
     items=items.filter(item=>item.id !== id)
-    reply.code(200).send({message:`Item ${id} has been removed`})
+}
+
+const updateItem=(req,reply)=>{
+    const {id} =req.params;
+    const {name}=req.body;
+   items= items.map((item)=>(item.id===id ?{id,name}:item))
+   item =items.find((item)=>item.id===id)
+   reply.send(item)
 }
 
 module.exports={
-    getItem,getItems,addItem,deleteItem
+    getItem,getItems,addItem,deleteItem,updateItem
 }
