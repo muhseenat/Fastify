@@ -34,6 +34,14 @@ const getItemOpts = {
 
 const addItemOpts = {
   schema: {
+    //REQ BODY VALIDATION FOR NOT EMPTY AND TYPE
+    body:{
+       type:'object',
+       required:['name'],
+       properties:{
+         name:{type:"string"},
+       },
+    },
     response: {
       201: Item,
     },
