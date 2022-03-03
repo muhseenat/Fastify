@@ -1,0 +1,10 @@
+###GET ALL ITEMS
+
+GET http://localhost:8080/items
+
+HTTP/1.1
+###GET ALL ITEM
+
+GET http://localhost:8080/item/2
+
+HTTP/1.1
