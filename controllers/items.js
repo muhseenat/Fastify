@@ -1,7 +1,7 @@
 
 //Like requiring DB
-const items = require("../Items");
-
+let items = require("../Items");
+const {v4:uuidv4} = require('uuid')
 
 
 const getItems=(req,reply)=>{
@@ -18,7 +18,20 @@ const getItem=(req,reply)=>{
 
 }
 
+const addItem=(req,reply)=>{
+    const {name}= req.body
+     const item = {
+        id:4,
+        name
+    }
+    items = [...items,item]
+
+    reply.code(201).send(item)
+}
+
+
+
 
 module.exports={
-    getItem,getItems
+    getItem,getItems,addItem
 }
